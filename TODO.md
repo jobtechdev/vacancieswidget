@@ -1,5 +1,5 @@
-AFPB WIDGET V 0.3
------------------
+# Vacancies Widget v 0.3
+
 
 TODO
 ----
