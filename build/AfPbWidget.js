@@ -48,33 +48,8 @@
 
 
     var main = function ($) {
-
         var httpRequestString;
         var  $afJobCount = $('#afJobCount');
-
-
-        // //Used to load script dependencies
-        // function loadScripts(array, callback) {
-        //     var loader = function (src, handler) {
-        //         var script = document.createElement("script");
-        //         script.src = src;
-        //         script.onload = script.onreadystatechange = function () {
-        //             script.onreadystatechange = script.onload = null;
-        //             handler();
-        //         };
-        //         var head = document.getElementsByTagName("head")[0];
-        //         (head || document.body).appendChild(script);
-        //     };
-        //     (function run() {
-        //         if (array.length != 0) {
-        //             loader(array.shift(), run);
-        //         } else {
-        //             callback && callback();
-        //         }
-        //     })();
-        // }
-
-
         if ($afJobCount.length) {
             if($afJobCount[0].dataset.lanid) {
                 httpRequestString = baseUrl + "matchning?lanid=" + $afJobCount[0].dataset.lanid + "&kommunid=" + $afJobCount[0].dataset.kommunid + "&sida=0&antalrader=1";
@@ -96,7 +71,6 @@
             }
         }
 
-        // loadScripts(["script/pagination.js", "script/jquery.modal.js"], function () {
         getScript("http://52.169.31.165/script/pagination.js", function(){
             getScript("http://52.169.31.165/script/jquery.modal.js", function(){
             $.modal.defaults = {
@@ -143,7 +117,6 @@
             });
 
         });
-        // });
 
         $afWidgetContainer = $('#afWidgetContainer');
         //Show The Window

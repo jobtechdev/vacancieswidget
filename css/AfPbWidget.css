@@ -182,9 +182,14 @@ a[id=afSeekAnnonsButton]:hover, a[id=afSeekAnnonsButton]:active{
 .modal {
     display: inline-block;
     vertical-align: middle;
-    position: relative;
-    z-index: 2;
+    position: fixed;
+    top: 10%;
+    right: 20%;
+    left: 10%;
+    z-index: 10;
     max-width: 750px;
+    max-height: 550px;
+    min-height: 550px;
     box-sizing: border-box;
     width: 90%;
     background: #fff;
