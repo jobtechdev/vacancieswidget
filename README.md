@@ -8,7 +8,7 @@ Usages
 ------
 Usage with no changes to AfPbWidget.js, requires catalogues structure
 according to the catalogue structure in the example directory.
-ie. You need to have all resource directories in same directory where you use tAdPbWidget
+ie. You need to have all resource directories in same directory where you use AfPbWidget.js
 
 ```
  'Your file with widget'.html - |-  css   |- AfPbWidget.css
