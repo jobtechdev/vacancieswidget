@@ -52,26 +52,27 @@
         var httpRequestString;
         var  $afJobCount = $('#afJobCount');
 
-        //Used to load script dependencies
-        function loadScripts(array, callback) {
-            var loader = function (src, handler) {
-                var script = document.createElement("script");
-                script.src = src;
-                script.onload = script.onreadystatechange = function () {
-                    script.onreadystatechange = script.onload = null;
-                    handler();
-                };
-                var head = document.getElementsByTagName("head")[0];
-                (head || document.body).appendChild(script);
-            };
-            (function run() {
-                if (array.length != 0) {
-                    loader(array.shift(), run);
-                } else {
-                    callback && callback();
-                }
-            })();
-        }
+
+        // //Used to load script dependencies
+        // function loadScripts(array, callback) {
+        //     var loader = function (src, handler) {
+        //         var script = document.createElement("script");
+        //         script.src = src;
+        //         script.onload = script.onreadystatechange = function () {
+        //             script.onreadystatechange = script.onload = null;
+        //             handler();
+        //         };
+        //         var head = document.getElementsByTagName("head")[0];
+        //         (head || document.body).appendChild(script);
+        //     };
+        //     (function run() {
+        //         if (array.length != 0) {
+        //             loader(array.shift(), run);
+        //         } else {
+        //             callback && callback();
+        //         }
+        //     })();
+        // }
 
 
         if ($afJobCount.length) {
@@ -95,7 +96,11 @@
             }
         }
 
-        loadScripts(["script/pagination.js", "script/jquery.modal.js"], function () {
+        // loadScripts(["script/pagination.js", "script/jquery.modal.js"], function () {
+        getScript("script/pagination.js", function(){
+            getScript("script/jquery.modal.js", function(){
+
+
 
             $.modal.defaults = {
                 fadeDuration: 200,
@@ -138,8 +143,10 @@
                 getAds(1);
             });
 
+            });
 
         });
+        // });
 
         $afWidgetContainer = $('#afWidgetContainer');
         //Show The Window
