@@ -19,6 +19,8 @@ Add the references to script and needed css files at the end of the html file fr
 </html>
 ```
 
+Add a 'div' tag with id 'afWidgetContainer', where you want to display link do modal job list window and some content inside the 'div', like Ex. 1
+
 note: only one tag, of 'afWidgetContainer' and 'afJobCount', is allowed on a html page.
 
 Ex. 1
@@ -34,6 +36,8 @@ Ex. 1
 </div>
 ```
 
+
+It is possible to display number of jobs in a region. se Ex 2.
 
 Ex. 2
 ```html

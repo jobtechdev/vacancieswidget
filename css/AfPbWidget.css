@@ -204,8 +204,8 @@ a[id=afSeekAnnonsButton]:hover, a[id=afSeekAnnonsButton]:active{
 
 .modal a.close-modal {
     position: absolute;
-    top: -12.5px;
-    right: -12.5px;
+    top: -1px;
+    right: -1px;
     display: block;
     width: 30px;
     height: 30px;
