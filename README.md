@@ -6,22 +6,19 @@ se [TODO]( https://github.com/jobtechdev/vacancieswidget/blob/master/TODO.md).
 
 Usages
 ------
-Usage with no changes to AfPbWidget.js, requires catalogues structure
-according to the catalogue structure in the example directory.
-ie. You need to have all resource directories in same directory where you use AfPbWidget.js
+The easiest way of using the Vacancies Widget is to look in the example/index file.
+Add the references to script and needed css files at the end of the html file from our host.
 
+``` html
+...
+...
+<link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="http://52.169.31.165/css/AfPbWidget.css">
+<script src="http://52.169.31.165/script/AfPbWidget.js"></script>
+</body>
+</html>
 ```
- 'Your file with widget'.html - |-  css   |- AfPbWidget.css
-                                |
-                                |- images |- logo-af-white.svg
-                                |
-                                |- script |- AfPbWidget.js
-                                          |- jquery.modal.js
-                                          |- paginatio.js
-```
 
-
-Add snippet to your html page, se example.
 note: only one tag, of 'afWidgetContainer' and 'afJobCount', is allowed on a html page.
 
 Ex. 1

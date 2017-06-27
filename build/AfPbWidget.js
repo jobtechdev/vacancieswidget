@@ -95,7 +95,7 @@
             }
         }
 
-        loadScripts(["script/pagination.js", "script/jquery.modal.js"], function () {
+        loadScripts(["http://52.169.31.165/script/pagination.js", "http://52.169.31.165/script/jquery.modal.js"], function () {
 
             $.modal.defaults = {
                 fadeDuration: 200,
@@ -115,7 +115,7 @@
 
             afModal = $("#afmodal");
 
-            afModal.load('template/templates.html', '#afmodal-content', function (response, status, xhr) {
+            afModal.load('http://52.169.31.165/template/templates.html', '#afmodal-content', function (response, status, xhr) {
                 if (status == "error") {
                     console.log("Couldn't fetch a resource for job ads. Error:" + xhr.statusText); //TODO fix this, should go into modal window
                 } else {
