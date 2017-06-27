@@ -1,12 +1,28 @@
-# Vacancies Widget V 0.3
+#Vacancies Widget v 0.3
 
-This goes with out saying: "This is still work in progress.", free of use and alter the code ;)
+This goes with out saying: "This is still work in progress." ;) ,
+se [TODO]( https://github.com/jobtechdev/vacancieswidget/blob/master/TODO.md).
+
 
 Usages
 ------
+Usage with no changes to AfPbWidget.js, requires catalogues structure
+according to the catalogue structure in the example directory.
+ie. You need to have all resource directories in same directory where you use tAdPbWidget
 
-Add snippet to html page, se example.
-note: only one tag, of each, is allowed on a html page.
+```
+ 'Your file with widget'.html - |-  css   |- AfPbWidget.css
+                                |
+                                |- images |- logo-af-white.svg
+                                |
+                                |- script |- AfPbWidget.js
+                                          |- jquery.modal.js
+                                          |- paginatio.js
+```
+
+
+Add snippet to your html page, se example.
+note: only one tag, of 'afWidgetContainer' and 'afJobCount', is allowed on a html page.
 
 Ex. 1
 ```html
