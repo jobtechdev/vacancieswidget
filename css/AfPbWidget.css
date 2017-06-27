@@ -180,16 +180,12 @@ a[id=afSeekAnnonsButton]:hover, a[id=afSeekAnnonsButton]:active{
     background-color: transparent;
 }
 .modal {
+    all: initial;
     display: inline-block;
     vertical-align: middle;
-    position: fixed;
-    top: 10%;
-    right: 20%;
-    left: 10%;
-    z-index: 10;
+    position: relative;
+    z-index: 20;
     max-width: 750px;
-    max-height: 550px;
-    min-height: 550px;
     box-sizing: border-box;
     width: 90%;
     background: #fff;
