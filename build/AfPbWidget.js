@@ -48,8 +48,11 @@
 
 
     var main = function ($) {
+
         var httpRequestString;
         var  $afJobCount = $('#afJobCount');
+
+
         if ($afJobCount.length) {
             if($afJobCount[0].dataset.lanid) {
                 httpRequestString = baseUrl + "matchning?lanid=" + $afJobCount[0].dataset.lanid + "&kommunid=" + $afJobCount[0].dataset.kommunid + "&sida=0&antalrader=1";
@@ -70,8 +73,8 @@
                 $afJobCount.html("Check tag parameter.");
             }
         }
-
         getScript("http://52.169.31.165/script/pagination.js", function(){
+
             getScript("http://52.169.31.165/script/jquery.modal.js", function(){
             $.modal.defaults = {
                 fadeDuration: 200,
@@ -91,7 +94,7 @@
 
             afModal = $("#afmodal");
 
-            afModal.load('http://52.169.31.165/template/templates.html', '#afmodal-content', function (response, status, xhr) {
+            afModal.load('http://52.169.31.165/template/templates.html #afmodal-content', function (response, status, xhr) {
                 if (status == "error") {
                     console.log("Couldn't fetch a resource for job ads. Error:" + xhr.statusText); //TODO fix this, should go into modal window
                 } else {
