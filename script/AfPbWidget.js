@@ -94,7 +94,7 @@
 
             afModal = $("#afmodal");
 
-            afModal.load('template/templates.html ,#afmodal-content', function (response, status, xhr) {
+            afModal.load('template/templates.html #afmodal-content', function (response, status, xhr) {
                 if (status == "error") {
                     console.log("Couldn't fetch a resource for job ads. Error:" + xhr.statusText); //TODO fix this, should go into modal window
                 } else {
