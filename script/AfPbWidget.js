@@ -73,13 +73,9 @@
                 $afJobCount.html("Check tag parameter.");
             }
         }
-
-        // loadScripts(["script/pagination.js", "script/jquery.modal.js"], function () {
         getScript("script/pagination.js", function(){
+
             getScript("script/jquery.modal.js", function(){
-
-
-
             $.modal.defaults = {
                 fadeDuration: 200,
                 closeExisting: true,
@@ -98,7 +94,7 @@
 
             afModal = $("#afmodal");
 
-            afModal.load('template/templates.html', '#afmodal-content', function (response, status, xhr) {
+            afModal.load('template/templates.html ,#afmodal-content', function (response, status, xhr) {
                 if (status == "error") {
                     console.log("Couldn't fetch a resource for job ads. Error:" + xhr.statusText); //TODO fix this, should go into modal window
                 } else {
@@ -124,7 +120,6 @@
             });
 
         });
-        // });
 
         $afWidgetContainer = $('#afWidgetContainer');
         //Show The Window
