@@ -1,54 +1,23 @@
 
-.afModalSize{
-
-}
-
-/*#afmodal {*/
-    /*display: none;*/
-/*}*/
-
 .afmodal-header {
-    /*padding: 2px 16px;*/
-    width: 100%;
     background-color: #337ab7;
-    position: absolute;
-    float: left;
-    padding-left: 30px;
-    color: white;
-    top:0;
-    right: 0;
-    left: 0;
-    display: inline-block;
+    border-radius: 5px 5px 0px 0px;
 }
 
 .afmodal-body {
-    position: relative;
-    display: inline-block;
-    height: 500px;
-    width: 720px;
-    left: -15px;
-    top: 50px;
-    padding-bottom: 120px;
+
 }
 
-#afListContent {
-    overflow: auto;
-    display: inline-block;
-    height: 100%;
-    width: 100%;
+.afListContent {
+    overflow: scroll;
+    max-height: 300px;
     border: 1pt solid #ece3e3;
 }
 
 .afmodal-footer {
-    /*padding: 2px 16px;*/
     background-color: #337ab7;
+    border-radius: 0px 0px 5px 5px;
     color: white;
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    text-align: center;
-    display: inline-block;
 }
 
 
@@ -84,8 +53,6 @@
     height: 50px;
     text-align: right;
     padding: 5px 10px;
-
-
 }
 
 a[id=afSeekAnnonsButton]:link, a[id=afSeekAnnonsButton]:visited {
@@ -137,7 +104,6 @@ a[id=afSeekAnnonsButton]:hover, a[id=afSeekAnnonsButton]:active{
 }
 
 #afpaginator{
-    display: inline-block;
     float: right;
 }
 
@@ -205,8 +171,8 @@ a[id=afSeekAnnonsButton]:hover, a[id=afSeekAnnonsButton]:active{
 
 .modal a.close-modal {
     position: absolute;
-    top: -1px;
-    right: -1px;
+    top: -12.5px;
+    right: -12.5px;
     display: block;
     width: 30px;
     height: 30px;
