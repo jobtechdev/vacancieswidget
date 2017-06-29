@@ -13,6 +13,7 @@
 }
 
 .afListContent {
+    cursor: pointer;
     overflow: scroll;
     max-height: 300px;
     border: 1pt solid #ece3e3;
