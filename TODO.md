@@ -15,6 +15,7 @@ TODO
 Bugs
 ----
 - I'm sure there is some bugs...
+- Microsoft Edge does not display the modal window properly.
 
 New Features ?
 --------------
