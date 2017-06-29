@@ -10,7 +10,7 @@ Add the references to script and needed css files at the end of the html file fr
 
 To produce an example of integration, I've ripped the front page from Växjö kommun , I hope I'm forgiven.
 
-![Vaxjo example](http://52.169.31.165/images/vaxjo.png)
+<img src="http://52.169.31.165/kommun/vaxjo/images/vaxjo.png" width="200" height="150">
 
 [live example](http://52.169.31.165/kommun/vaxjo/)
 
