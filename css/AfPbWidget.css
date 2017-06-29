@@ -1,3 +1,6 @@
+#afWidgetContainer {
+    cursor: pointer;
+}
 
 .afmodal-header {
     color: white;
