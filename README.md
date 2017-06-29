@@ -1,4 +1,4 @@
-# Vacancies Widget v 0.3
+# Vacancies Widget v 0.3.1
 
 This goes with out saying: "This is still work in progress." ;) ,
 se [TODO]( https://github.com/jobtechdev/vacancieswidget/blob/master/TODO.md).
