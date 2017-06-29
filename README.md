@@ -5,16 +5,16 @@ see [TODO]( https://github.com/jobtechdev/vacancieswidget/blob/master/TODO.md)
 
 Usages
 ------
-The easiest way of using the Vacancies Widget is to look in the example/index file.
-Add the references to script and needed css files at the end of the html file from our host.
+The easiest way of using the Vacancies Widget is to add references to our hosted script and needed css files at the end of the html file. See Snippet 1.
+and then place a clickable element 'afWidgetContainer' according to your preferences. See Ex.1 and Ex.2
 
 To produce an example of integration, I've ripped the front page from Växjö kommun , I hope I'm forgiven.
 
 <img src="http://52.169.31.165/kommun/vaxjo/images/vaxjo.png" width="200" height="150">
 
-[live example](http://52.169.31.165/kommun/vaxjo/)
+You can try it out in this [live example](http://52.169.31.165/kommun/vaxjo/)
 
-
+Snippet 1.
 ``` html
 ...
 ...
