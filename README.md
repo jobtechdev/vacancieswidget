@@ -1,15 +1,19 @@
 # Vacancies Widget v 0.3.1
 
 This goes with out saying: "This is still work in progress." ;) ,
-se [TODO]( https://github.com/jobtechdev/vacancieswidget/blob/master/TODO.md).
-
+see [TODO]( https://github.com/jobtechdev/vacancieswidget/blob/master/TODO.md)
 
 Usages
 ------
 The easiest way of using the Vacancies Widget is to look in the example/index file.
 Add the references to script and needed css files at the end of the html file from our host.
 
-To produce an example of integration, I've ripped the front page from [Växjö kommun](http://52.169.31.165/kommun/vaxjo/), I hope I'm forgiven.
+To produce an example of integration, I've ripped the front page from Växjö kommun , I hope I'm forgiven.
+
+![Vaxjo example](http://52.169.31.165/images/vaxjo.png)
+
+[live example](http://52.169.31.165/kommun/vaxjo/)
+
 
 ``` html
 ...
