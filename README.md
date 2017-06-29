@@ -10,7 +10,7 @@ and then place a clickable element 'afWidgetContainer' according to your prefere
 
 To produce an example of integration, I've ripped the front page from Växjö kommun , I hope I'm forgiven.
 
-<p align="center"><img src="http://52.169.31.165/kommun/vaxjo/images/vaxjo.png" width="270" height="200"></p>
+<img src="http://52.169.31.165/kommun/vaxjo/images/vaxjo.png" width="270" height="200">
 
 You can try it out in this [live example](http://52.169.31.165/kommun/vaxjo/)
 
