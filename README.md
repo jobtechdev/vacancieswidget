@@ -45,6 +45,8 @@ Ex. 2
 </div>
 ```
 
+To produce an example of integration, I've ripped the front page from [Växjö kommun](http://52.169.31.165/kommun/vaxjo/), I hope I'm forgiven.
+
 Known issues
 ------------
 - (Possible)Conflict with bootstrap.css (3.3.7) and modal script.
