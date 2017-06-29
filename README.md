@@ -21,7 +21,7 @@ Add the references to script and needed css files at the end of the html file fr
 
 Add a 'div' tag with id 'afWidgetContainer', where you want to display link do modal job list window and some content inside the 'div', like Ex. 1
 
-note: only one tag, of 'afWidgetContainer' and 'afJobCount', is allowed on a html page.
+note: only one tag,'afWidgetContainer' and/or 'afJobCount', is allowed on a html page.
 
 Ex. 1
 ```html
