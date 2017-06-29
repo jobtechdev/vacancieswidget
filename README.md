@@ -9,6 +9,8 @@ Usages
 The easiest way of using the Vacancies Widget is to look in the example/index file.
 Add the references to script and needed css files at the end of the html file from our host.
 
+To produce an example of integration, I've ripped the front page from [Växjö kommun](http://52.169.31.165/kommun/vaxjo/), I hope I'm forgiven.
+
 ``` html
 ...
 ...
@@ -45,7 +47,6 @@ Ex. 2
 </div>
 ```
 
-To produce an example of integration, I've ripped the front page from [Växjö kommun](http://52.169.31.165/kommun/vaxjo/), I hope I'm forgiven.
 
 Known issues
 ------------
