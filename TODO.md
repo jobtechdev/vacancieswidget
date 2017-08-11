@@ -11,6 +11,7 @@ TODO
 - Clean and fix js and css to more professional look.
 - Loading indicators for all ajax requests. Modal script is supporting ajax request.
 - Better and more: Error/Exception handling
+- Add 'organisationsnummer' parameter to afwidget.
 
 Bugs
 ----
