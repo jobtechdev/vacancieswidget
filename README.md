@@ -12,7 +12,7 @@ To produce an example of integration, I've ripped the front page from Växjö ko
 
 <img src="http://52.169.31.165/kommun/vaxjo/images/vaxjo.png" width="270" height="200">
 
-You can try it out in this [live example](http://52.169.31.165/kommun/vaxjo/)
+You can try it out in this [live example](http://widget.northeurope.cloudapp.azure.com/kommun/vaxjo/)
 
 Snippet 1.
 ``` html
