@@ -14,6 +14,7 @@ TODO (not in priority order)
 - Add 'organisationsnummer' parameter to afwidget.
 - Ability to change/adjust looks and feels
 - Add more and detailed usage description
+- Add filter to Widget UI. "yrke", "Arbetets omfattning", etc.
 
 Bugs
 ----
