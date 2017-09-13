@@ -19,8 +19,8 @@ Snippet 1.
 ...
 ...
 <link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-<link rel="stylesheet" type="text/css" href="http://52.169.31.165/css/AfPbWidget.css">
-<script src="http://52.169.31.165/script/AfPbWidget.js"></script>
+<link rel="stylesheet" type="text/css" href="http://widget.northeurope.cloudapp.azure.com/css/AfPbWidget.css">
+<script src="http://widget.northeurope.cloudapp.azure.com/script/AfPbWidget.js"></script>
 </body>
 </html>
 ```
