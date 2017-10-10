@@ -1,3 +1,5 @@
+
+
 (function (window, document) {
 
     var jQuery, $;
@@ -8,6 +10,26 @@
         annonsTableBody,
         afModal,
         activeRow;
+
+    function getStylesheet(url){
+        var linkElement = document.createElement('link');
+        linkElement.href=url;
+        linkElement.rel='stylesheet';
+        var head = document.getElementsByTagName('head')[0],
+            done = false;
+        // Attach handlers for all browsers
+        linkElement.onload = linkElement.onreadystatechange = function () {
+            if (!done && (!this.readyState
+                    || this.readyState == 'loaded'
+                    || this.readyState == 'complete')) {
+                done = true;
+                //success();
+                linkElement.onload = linkElement.onreadystatechange = null;
+                // head.removeChild(linkElement);
+            }
+        };
+        head.appendChild(linkElement);
+    }
 
     function getScript(url, success) {
         var script = document.createElement('script');
@@ -44,14 +66,17 @@
             if (window.console) console.log('jQuery v'+ jQuery.fn.jquery+' already loaded!');
             main();
         }
-    };
 
+    };
+  
 
     var main = function ($) {
-
+        getStylesheet('css/bootstrap.css');
+        getStylesheet('css/AfPbWidget.css');
         var httpRequestString;
         var  $afJobCount = $('#afJobCount');
-
+        
+        // $("head").append("<link rel='stylesheet' href='css/bootstrap.css' type='text/css'>");
 
         if ($afJobCount.length) {
             if($afJobCount[0].dataset.lanid) {
@@ -245,4 +270,5 @@
 
 
 })(window, document);
+
 
