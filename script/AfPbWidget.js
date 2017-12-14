@@ -315,32 +315,41 @@
 
         var cell = document.createElement('div');
         cell.className = 'afTableCell';
+        var row = document.createElement('div');
+        row.className = 'row';
+
         var adheadElement = document.createElement('div');
-        adheadElement.className = 'annonsHead col-8';
+        adheadElement.className = 'annonsHead';
         adheadElement.innerHTML = annons.annonsrubrik;
         var jobplaceElement = document.createElement('div');
-        jobplaceElement.className = 'jobplace col-8';
+        jobplaceElement.className = 'jobplace';
         jobplaceElement.innerHTML = annons.arbetsplatsnamn + ', ' + annons.kommunnamn;
         if (annons.sista_ansokningsdag) {
 
         var dateElement = document.createElement('div');
-        dateElement.className = 'date col-8';
+        dateElement.className = 'date';
         dateElement.innerHTML = 'Sista ansökningsdag: ' + annons.sista_ansokningsdag.slice(0, 10);
+
+        var right = document.createElement('div');
+        right.className = 'col-4';
+        var left = document.createElement('div');
+        left.className = 'col-8';
+
         }
         $.ajax({
             type: 'HEAD',
             url: "http://api.arbetsformedlingen.se/platsannons/"+annons.annonsid+"/logotyp",
             success: function() {
                 var logoElement = document.createElement('img');
-                logoElement.className = 'listlogo col-4';
+                logoElement.className = 'listlogo';
                 logoElement.src ="http://api.arbetsformedlingen.se/platsannons/"+annons.annonsid+"/logotyp";
                 logoElement.style.cssFloat = 'right';
                 logoElement.style.maxWidth ="120px";
-                //logoElement.style.maxHeight ="100px";
-                logoElement.style.top = "0px";
+                logoElement.style.maxHeight ="100px";
+                //logoElement.style.top = "0px";
                 //logoElement.style.left = "0px";
 
-                cell.appendChild(logoElement);
+                right.appendChild(logoElement);
 
             },
             error: function() {
@@ -348,12 +357,15 @@
             }
         });
 
-        cell.appendChild(adheadElement);
-        cell.appendChild(jobplaceElement);
-        if (annons.sista_ansokningsdag) {
-            cell.appendChild(dateElement);
-        }
 
+        left.appendChild(adheadElement);
+        left.appendChild(jobplaceElement);
+        row.appendChild(left);
+        row.appendChild(right);
+        if (annons.sista_ansokningsdag) {
+            left.appendChild(dateElement);
+        }
+        cell.appendChild(row);
         newRow.appendChild(cell);
         annonsTableBody.appendChild(newRow);
     };
