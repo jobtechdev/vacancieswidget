@@ -1,7 +1,7 @@
 
 
 (function (window, document) {
-
+    var httpRequestString = "";
     var jQuery, $;
     var baseUrl = 'http://api.arbetsformedlingen.se/af/v0/platsannonser/';
     var $pagination,
@@ -73,17 +73,18 @@
     var main = function ($) {
         getStylesheet('css/bootstrap.css');
         getStylesheet('css/AfPbWidget.css');
-        var httpRequestString;
+
         var  $afJobCount = $('#afJobCount');
         
         if ($afJobCount.length) {
-            if($afJobCount[0].dataset.lanid) {
-                httpRequestString = baseUrl + "matchning?lanid=" + $afJobCount[0].dataset.lanid + "&kommunid=" + $afJobCount[0].dataset.kommunid + "&sida=0&antalrader=1";
+            if(!$afJobCount[0].dataset.organisationsnummer) {
+                httpRequestString = baseUrl + "matchning?lanid=" + $afJobCount[0].dataset.lanid + "&kommunid=" + $afJobCount[0].dataset.kommunid +"&yrkesid="+$afJobCount[0].dataset.yrkesid+"&yrkesgruppid="+  $afJobCount[0].dataset.yrkesgruppid;
 
                 //Get 'antal_platsannonser'
                 $.getJSON(httpRequestString, {
-                    format: "json"
+                    antal:"1"
                 })
+
                     .done(function (annonsdata) {
                         totalPages = annonsdata.matchningslista.antal_platsannonser;
                         $afJobCount[0].innerHTML = totalPages;
@@ -92,7 +93,24 @@
                         $afJobCount.html("Missing data");
                         console.log("Couldn't get job ad from remote service");
                     });
-            }else{
+            }else if($afJobCount[0].dataset.organisationsnummer) {
+                httpRequestString = baseUrl + "matchning?organisationsnummer="+$afJobCount[0].dataset.organisationsnummer;
+
+                //Get 'antal_platsannonser'
+                $.getJSON(httpRequestString, {
+                    antal:"1"
+                })
+
+                    .done(function (annonsdata) {
+                        totalPages = annonsdata.matchningslista.antal_platsannonser;
+                        $afJobCount[0].innerHTML = totalPages;
+                    })
+                    .fail(function () {
+                        $afJobCount.html("Missing data");
+                        console.log("Couldn't get job ad from remote service");
+                    });
+            }
+            else{
                 $afJobCount.html("Check tag parameter.");
             }
         }
@@ -107,13 +125,14 @@
                 closeText: 'Close',
                 closeClass: '',
                 showClose: true,
-                spinnerHtml: null,
+                spinnerHtml: true,
                 modalClass: "modal",
                 showSpinner: true,
                 fadeDelay: 1.0
             };
 
-            $('body').prepend("<div id='afmodal' class='modal' style='display: none'></div>");
+            $('body').prepend("<div id='afmodal' class='afmodal' style='display: none'></div>");
+
 
             afModal = $("#afmodal");
 
@@ -130,8 +149,10 @@
                             //Show new page from top..
                             $('#afListContent').animate({scrollTop: (0)});
                         }
+
                     };
                     $pagination.twbsPagination(defaultOpts);
+
                 }
             });
             afModal.on($.modal.BEFORE_OPEN, function (event, modal) {
@@ -145,12 +166,14 @@
         $afWidgetContainer = $('#afWidgetContainer');
         //Show The Window
         $afWidgetContainer[0].onclick = function () {
-            $('#afmodal').modal();
+            $('#afmodal').modal ();
         };
 
         //do on click row in annons list
         $(document).on('click', '.afTableRow', function () {
+
             //Show ad
+
             deactivateActiveAnnons();
             activeRow = $(this);
             $(this).addClass('afRowActive');
@@ -159,6 +182,7 @@
             var listContent = $('#afListContent');
             listContent.animate({scrollTop: (activeRow.offset().top - listContent.offset().top + listContent.scrollTop())});
         });
+
     };
 
     var deactivateActiveAnnons = function () {
@@ -170,40 +194,113 @@
 
     var showAnnons = function (annonsid) {
 
-        //TODO this should be changed in new layout...
+        $('body').prepend("<div id='afAnnonsContent' class='afmodal' style='display: none'></div>");
+        divElement = $("#afAnnonsContent");
+        //divElement = $('#afAnnonsContent');
+         //divElement = $(document.createElement('div'));
 
-        var divElement = $('#afAnnonsContent');
-        if (activeRow.find(divElement).length) {
-            divElement.remove();
-            activeRow.removeClass('afRowActive');
-        } else {
 
-            divElement = $(document.createElement('div'));
-            divElement.attr('id', 'afAnnonsContent');
-            divElement.addClass('modal');
 
-            iframeElement = $(document.createElement('iframe'));
-            iframeElement.attr('id', 'afAnnonsFrame');
-            iframeElement.attr('src', baseUrl + annonsid + "/typ=html");
 
-            var infoDiv = $(document.createElement('div'));
-            infoDiv.attr('id', 'afAnnonsInfo');
-            infoDiv
-                .html('<a id="afSeekAnnonsButton" href="https://www.arbetsformedlingen.se/Tjanster/Arbetssokande/Platsbanken/annonser/'
-                    + annonsid + '" target="_blank">Sök jobbet!</a>');
 
-            activeRow.append(divElement);
-            divElement.append(iframeElement);
-            divElement.append(infoDiv);
 
-            divElement.on($.modal.AFTER_CLOSE, function () {
-                deactivateActiveAnnons();
-            });
 
-            divElement.modal({
-                closeExisting: false
-            });
-        }
+
+        divElement.load('template/templates.html #annonshtml', function (response, status, xhr) {
+            if (status == "error") {
+                console.log("Couldn't fetch a resource for job ads. Error:" + xhr.statusText); //TODO fix this, should go into modal window
+            } else {
+
+
+
+ 
+
+                //divElement.append(annonsTemplate);
+                
+                $.getJSON("http://api.arbetsformedlingen.se/af/v0/platsannonser/"+annonsid)
+                    .done(function (annonsdata) {
+                        //If the ad is lacking property "sista_ansokningsdag"
+                        if(!annonsdata.platsannons.ansokan.sista_ansokningsdag){
+                            annonsdata.platsannons.ansokan.sista_ansokningsdag = "Saknas";
+                        }
+
+                        $("#annonsRubrik").html(annonsdata.platsannons.annons.annonsrubrik);
+                        $("#annonsKommun").append(annonsdata.platsannons.annons.kommunnamn);
+                        $("#annonsArbetsplats").append(annonsdata.platsannons.arbetsplats.arbetsplatsnamn);
+                        $("#annonsYrke").append(annonsdata.platsannons.annons.yrkesbenamning);
+                        $("#annonsAntalPlatser").append(annonsdata.platsannons.annons.antal_platser);
+                        $("#anstallningstyp").append(annonsdata.platsannons.annons.anstallningstyp);
+                        $("#annonsText").html(annonsdata.platsannons.annons.annonstext);
+
+
+                        if(annonsdata.platsannons.ansokan.webbplats){
+                            $("#ansok").attr("href",annonsdata.platsannons.ansokan.webbplats);
+                            $("#ansok").html("Ansök via webbplats");
+
+
+                        }
+
+                        if(annonsdata.platsannons.ansokan.epostadress){
+                            $("#ansok").attr("href","mailto:"+annonsdata.platsannons.ansokan.epostadress);
+                            $("#ansok").html("Ansök via e-post ");
+                            $("#ansokanInfo").html("Ansökan skickas till: "+annonsdata.platsannons.ansokan.epostadress);
+                        }
+                        if(!annonsdata.platsannons.ansokan.epostadress && !annonsdata.platsannons.ansokan.webbplats){
+                            $("#ansokanInfo").append(JSON.Stringify(annonsdata).platsannons.ansokan)
+                            $("#ansok").remove();
+
+                        }
+
+                        if(!annonsdata.platsannons.arbetsplats.logotypurl){
+                            $("#logo").remove();
+                        }else{
+                            $("#logo").attr("src",annonsdata.platsannons.arbetsplats.logotypurl);
+                        }
+                        //   $("#").html();
+                        //   $("#").html();
+                        //    $("#").html();
+
+                        // activeRow.append(divElement);
+                        document.getElementById("annons").classList.remove("invisible");
+
+                        document.getElementById("annonshtml").classList.remove("loader");
+                    })
+                    .fail(function () {
+                        $afJobCount.html("Missing data");
+                        console.log("Couldn't get job ad from remote service");
+                        document.getElementById("annons").classList.remove("invisible");
+
+                        document.getElementById("annonshtml").classList.remove("loader");
+                    });
+
+              
+                divElement.on($.modal.AFTER_CLOSE, function () {
+                    deactivateActiveAnnons();
+                });
+
+                divElement.modal({
+                    fadeDuration: 0,
+                    closeExisting: false,
+                    escapeClose: true,
+                    clickClose: true,
+                    closeText: 'Close',
+                    closeClass: '',
+                    showClose: true,
+                    spinnerHtml: true,
+                    modalClass: "modal",
+                    showSpinner: true,
+                    fadeDelay: 0.0
+                });
+
+            }
+
+
+
+
+            //$("#afAnnonsContent").removeClass("invisibles");
+        });
+
+
 
     };
 
@@ -219,24 +316,54 @@
         var cell = document.createElement('div');
         cell.className = 'afTableCell';
         var adheadElement = document.createElement('div');
-        adheadElement.className = 'annonsHead';
+        adheadElement.className = 'annonsHead col-8';
         adheadElement.innerHTML = annons.annonsrubrik;
         var jobplaceElement = document.createElement('div');
-        jobplaceElement.className = 'jobplace';
+        jobplaceElement.className = 'jobplace col-8';
         jobplaceElement.innerHTML = annons.arbetsplatsnamn + ', ' + annons.kommunnamn;
+        if (annons.sista_ansokningsdag) {
+
+        var dateElement = document.createElement('div');
+        dateElement.className = 'date col-8';
+        dateElement.innerHTML = 'Sista ansökningsdag: ' + annons.sista_ansokningsdag.slice(0, 10);
+        }
+        $.ajax({
+            type: 'HEAD',
+            url: "http://api.arbetsformedlingen.se/platsannons/"+annons.annonsid+"/logotyp",
+            success: function() {
+                var logoElement = document.createElement('img');
+                logoElement.className = 'listlogo col-4';
+                logoElement.src ="http://api.arbetsformedlingen.se/platsannons/"+annons.annonsid+"/logotyp";
+                logoElement.style.cssFloat = 'right';
+                logoElement.style.maxWidth ="120px";
+                //logoElement.style.maxHeight ="100px";
+                logoElement.style.top = "0px";
+                //logoElement.style.left = "0px";
+
+                cell.appendChild(logoElement);
+
+            },
+            error: function() {
+                // page does not exist
+            }
+        });
 
         cell.appendChild(adheadElement);
         cell.appendChild(jobplaceElement);
+        if (annons.sista_ansokningsdag) {
+            cell.appendChild(dateElement);
+        }
 
         newRow.appendChild(cell);
         annonsTableBody.appendChild(newRow);
     };
 
     var adsURL = function (sida) {
+
         var afw = $afWidgetContainer[0];
         if (sida) {
-            return baseUrl + "matchning?lanid=" + afw.dataset.lanid + "&kommunid="+afw.dataset.kommunid+"&sida=" + sida + "&antalrader=" + afw.dataset.antalrader;
-        } else return baseUrl + "matchning?lanid=" + afw.dataset.lanid +"&kommunid="+afw.dataset.kommunid+ "&sida=1&antalrader=" + afw.dataset.antalrader;
+            return httpRequestString+"&sida=" + sida + "&antalrader=" + afw.dataset.antalrader;
+        } else return httpRequestString+ "&sida=1&antalrader=" + afw.dataset.antalrader;
     };
 
     function getAds(sida) {

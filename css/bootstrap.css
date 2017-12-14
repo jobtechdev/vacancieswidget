@@ -5407,7 +5407,7 @@ button.close {
   overflow: hidden;
 }
 
-.modal {
+.afmodal {
   position: fixed;
   top: 0;
   right: 0;
@@ -5419,7 +5419,7 @@ button.close {
   outline: 0;
 }
 
-.modal.fade .modal-dialog {
+.afmodal.fade .modal-dialog {
   -webkit-transition: -webkit-transform 0.3s ease-out;
   transition: -webkit-transform 0.3s ease-out;
   -o-transition: -o-transform 0.3s ease-out;
@@ -5430,13 +5430,13 @@ button.close {
           transform: translate(0, -25%);
 }
 
-.modal.show .modal-dialog {
+.afmodal.show .modal-dialog {
   -webkit-transform: translate(0, 0);
        -o-transform: translate(0, 0);
           transform: translate(0, 0);
 }
 
-.modal-open .modal {
+.modal-open .afmodal {
   overflow-x: hidden;
   overflow-y: auto;
 }
