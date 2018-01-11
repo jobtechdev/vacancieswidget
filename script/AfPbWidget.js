@@ -246,8 +246,8 @@
                             $("#ansokanInfo").html("Ansökan skickas till: "+annonsdata.platsannons.ansokan.epostadress);
                         }
                         if(!annonsdata.platsannons.ansokan.epostadress && !annonsdata.platsannons.ansokan.webbplats){
-                            $("#ansokanInfo").append(JSON.Stringify(annonsdata).platsannons.ansokan)
-                            $("#ansok").remove();
+                            $("#ansok").attr("href",annonsdata.platsannons.annons.platsannonsUrl);
+                            $("#ansok").html("Visa annons på Platsbanken");
 
                         }
 
