@@ -21,7 +21,7 @@ Snippet 1.
 ``` html
 ...
 ...
-<script src="http://widget.northeurope.cloudapp.azure.com/script/AfPbWidget.js"></script>
+<script src="http://<host>/AfPbWidget.js"></script>
 </body>
 </html>
 ```
