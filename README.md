@@ -11,11 +11,7 @@ and then place a clickable element 'afWidgetContainer' according to your prefere
 You need to provide either kommunid, yrkesgruppid or yrkesid if you want to show all jobadds for a region.
 If you want to show all adds for a company you can provide organisationsnummer.
 
-To produce an example of integration, I've ripped the front page from Växjö kommun , I hope I'm forgiven.
-
-<img src="http://widget.northeurope.cloudapp.azure.com/kommun/vaxjo/images/vaxjo.png" width="270" height="200">
-
-You can try it out in this [live example](http://widget.northeurope.cloudapp.azure.com/kommun/vaxjo/)
+[Here](https://widgets.jobtechdev.se/vaccancies/) you have the html tag working on an empty page
 
 Snippet 1.
 ``` html
