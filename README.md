@@ -21,7 +21,7 @@ Snippet 1.
 ``` html
 ...
 ...
-<script src="http://<host>/AfPbWidget.js"></script>
+<script src="https://widgets.jobtechdev.se/vaccancies/script/AfPbWidget.js"></script>
 </body>
 </html>
 ```
