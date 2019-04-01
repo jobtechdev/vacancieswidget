@@ -18,7 +18,7 @@ You can choose to host on premises or use our host in the cloud, it's your choic
 <br> run
 <br> `%>sudo docker run -it  -p 8080:8080 <Image name>`
 <br> access test page
-<br> `http://localhost:8080/alljobads/`
+<br> `http://localhost:8080/vaccancies/index.html`
 
 ## Usages
 
