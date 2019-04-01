@@ -1,10 +1,27 @@
-# Vacancies Widget v 0.3.1
+![alt text][logo]
 
-This goes with out saying: "This is still work in progress." ;) ,
-see [TODO]( https://github.com/jobtechdev/vacancieswidget/blob/master/TODO.md)
+[logo]: https://github.com/MagnumOpuses/project-meta/blob/master/img/jobtechdev_black.png "JobTech dev logo"
+[A JobTech Project]( https://www.jobtechdev.se)
 
-Usages
-------
+# Vacancies Widget v 0.9
+Use at you own risk.
+This widget is using a backend service that not yet is in production mode, therefore no promises about robustness or correctness.
+The api endpoint can be altered with no notice and effect the widget function.<BR>
+[Here you have aworking example](https://widgets.jobtechdev.se/vaccancies/index.html)<BR>
+Do you want to help? Get involved!
+see [CONTRIBUTING]( https://github.com/MagnumOpuses/vaccancieswidget/blob/master/CONTRIBUTING.md)
+
+## Getting started
+You can choose to host on premises or use our host in the cloud, it's your choice.<br>
+### Docker
+`%> sudo docker build -t <Image name> -f Dockerfile`
+<br> run
+<br> `%>sudo docker run -it  -p 8080:8080 <Image name>`
+<br> access test page
+<br> `http://localhost:8080/alljobads/`
+
+## Usages
+
 The easiest way of using the Vacancies Widget is to add references to our hosted script and needed css files at the end of the html file. See Snippet 1.
 and then place a clickable element 'afWidgetContainer' according to your preferences. See Ex.1 and Ex.2
 
