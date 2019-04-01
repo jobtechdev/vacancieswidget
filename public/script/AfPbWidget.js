@@ -3,7 +3,7 @@
 (function (window, document) {
     var httpRequestString = "";
     var jQuery, $;
-    var baseUrl = 'http://api.arbetsformedlingen.se/af/v0/platsannonser/';
+    var baseUrl = 'https://api.arbetsformedlingen.se/af/v0/platsannonser/';
     var $pagination,
         $afWidgetContainer,
         defaultOpts,
@@ -53,7 +53,7 @@
     window.onload = function () {
         //Load jQuery version 3.2.0 if it isn't already loaded.
         if (typeof jQuery == 'undefined' || window.jQuery.fn.jquery !== '3.2.0') {
-            getScript('http://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.js', function () {
+            getScript('https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.js', function () {
                 if (typeof window.jQuery == 'undefined') {
                     if (window.console) console.log('Sorry, but jQuery wasn\'t able to load');
                 } else {
@@ -217,7 +217,7 @@
 
                 //divElement.append(annonsTemplate);
                 
-                $.getJSON("http://api.arbetsformedlingen.se/af/v0/platsannonser/"+annonsid)
+                $.getJSON("https://api.arbetsformedlingen.se/af/v0/platsannonser/"+annonsid)
                     .done(function (annonsdata) {
                         //If the ad is lacking property "sista_ansokningsdag"
                         if(!annonsdata.platsannons.ansokan.sista_ansokningsdag){
@@ -338,7 +338,7 @@
         }
         $.ajax({
             type: 'HEAD',
-            url: "http://api.arbetsformedlingen.se/platsannons/"+annons.annonsid+"/logotyp",
+            url: "https://api.arbetsformedlingen.se/platsannons/"+annons.annonsid+"/logotyp",
             success: function() {
                 var logoElement = document.createElement('img');
                 logoElement.className = 'listlogo';
