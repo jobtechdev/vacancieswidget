@@ -6,10 +6,14 @@
 # Vacancies Widget v 0.9
 Use at you own risk.
 This widget is using a backend service that not yet is in production mode, therefore no promises about robustness or correctness.
-The api endpoint can be altered with no notice and effect the widget function.<BR>
-[Here you have aworking example](https://widgets.jobtechdev.se/vaccancies/index.html)<BR>
+The api endpoint can be altered with no notice and effect the widget function.  
+[Here you have aworking example](https://widgets.jobtechdev.se/vaccancies/index.html)  
 Do you want to help? Get involved!
 see [CONTRIBUTING]( https://github.com/MagnumOpuses/vaccancieswidget/blob/master/CONTRIBUTING.md)
+
+#### Note:  
+The backend services this widget is depending on, is close to ''end of life'' and will be deprecated. Substitute for this widget will, in the future, be the experimental version on [GitHub AllJobsWidget](https://github.com/MagnumOpuses/allJobAdsWidget)  
+ 
 
 ## Getting started
 You can choose to host on premises or use our host in the cloud, it's your choice.<br>
