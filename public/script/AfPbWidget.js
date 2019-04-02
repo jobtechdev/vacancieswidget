@@ -10,6 +10,14 @@
         annonsTableBody,
         afModal,
         activeRow;
+    var s
+
+var scriptBaseUrl = document.getElementById("AfPbWidget").src
+    var pathArray = scriptBaseUrl.split( '/' );
+    var protocol = pathArray[0];
+    var host = pathArray[2];
+    var scriptUrl = protocol + '//' + host;
+    console.log(scriptUrl);
 
     function getStylesheet(url){
         var linkElement = document.createElement('link');
@@ -71,8 +79,8 @@
   
 
     var main = function ($) {
-        getStylesheet('css/bootstrap.css');
-        getStylesheet('css/AfPbWidget.css');
+        getStylesheet(scriptUrl+"/"+'css/bootstrap.css');
+        getStylesheet(scriptUrl+"/"+'css/AfPbWidget.css');
 
         var  $afJobCount = $('#afJobCount');
         
@@ -114,9 +122,9 @@
                 $afJobCount.html("Check tag parameter.");
             }
         }
-        getScript("script/pagination.js", function(){
+        getScript(scriptUrl+"/"+"script/pagination.js", function(){
 
-            getScript("script/jquery.modal.js", function(){
+            getScript(scriptUrl+"/"+"script/jquery.modal.js", function(){
             $.modal.defaults = {
                 fadeDuration: 200,
                 closeExisting: true,
@@ -136,7 +144,7 @@
 
             afModal = $("#afmodal");
 
-            afModal.load('template/templates.html #afmodal-content', function (response, status, xhr) {
+            afModal.load(scriptUrl+"/"+'template/templates.html #afmodal-content', function (response, status, xhr) {
                 if (status == "error") {
                     console.log("Couldn't fetch a resource for job ads. Error:" + xhr.statusText); //TODO fix this, should go into modal window
                 } else {
