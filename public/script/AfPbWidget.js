@@ -16,7 +16,7 @@ var scriptBaseUrl = document.getElementById("AfPbWidget").src
     var pathArray = scriptBaseUrl.split( '/' );
     var protocol = pathArray[0];
     var host = pathArray[2];
-    var scriptUrl = protocol + '//' + host;
+    var scriptUrl = protocol + '//' + host +'/'+ pathArray[3];
     console.log(scriptUrl);
 
     function getStylesheet(url){
