@@ -102,7 +102,7 @@ var scriptBaseUrl = document.getElementById("AfPbWidget").src
                         console.log("Couldn't get job ad from remote service");
                     });
             }else if($afJobCount[0].dataset.organisationsnummer) {
-                httpRequestString = baseUrl + "matchning?organisationsnummer="+$afJobCount[0].dataset.organisationsnummer;
+                httpRequestString = baseUrl + "matchning?organisationsnummer="+$afJobCount[0].dataset.organisationsnummer + "matchning?lanid=" + $afJobCount[0].dataset.lanid + "&kommunid=" + $afJobCount[0].dataset.kommunid;
 
                 //Get 'antal_platsannonser'
                 $.getJSON(httpRequestString, {
