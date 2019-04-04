@@ -214,7 +214,7 @@ var scriptBaseUrl = document.getElementById("AfPbWidget").src
 
 
 
-        divElement.load('template/templates.html #annonshtml', function (response, status, xhr) {
+        divElement.load(scriptUrl+"/"+'template/templates.html #annonshtml', function (response, status, xhr) {
             if (status == "error") {
                 console.log("Couldn't fetch a resource for job ads. Error:" + xhr.statusText); //TODO fix this, should go into modal window
             } else {
